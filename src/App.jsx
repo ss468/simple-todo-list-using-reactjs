@@ -7,24 +7,26 @@ import { useState } from "react";
 import Welcomemessage from "./assets/components/welcomemessage";
 function App() {
  let Todolists=[
+
+ 
     
 ]
       const [todoitems,settodoitems]=useState(Todolists);
       const handelnewitem=(itemname,date)=>{
               //  alert(`Are you sure you want to Add "${itemname}" to TODO list `);
-               const newtodoitems=[...Todolists,{
+               const newtodoitems=[...todoitems,{
                 tododate:date,
                 todoname:itemname,
                }];
                settodoitems(newtodoitems);
       }
-      const handeldelbutton=(todoitemname)=>{
-            //  alert(`Are you sure you want to delete "${todoitemname}" from TODO list `);
-             const newtodoitems= Todolists.filter((item)=>item.itemname!==todoitemname)
-             settodoitems(newtodoitems);
+       const handeldelbutton=(todoitemname)=>{
+             //  alert(`Are you sure you want to delete "${todoitemname}" from TODO list `);
+              const newtodoitems= todoitems.filter((item)=>item.todoname!==todoitemname)
+              settodoitems(newtodoitems);
               
 
-      }
+       }
   let lenoftodo=todoitems.length
   return (
       <div>
